@@ -1,6 +1,10 @@
 RAM Allocation [bytes]
 Variable                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
+adc_data                                                                          0x0306       4
+input_index                                                                       0x030A       1
+_base_y                                                                           0x030B       4
+_seed                                                                             0x030F       4
 
 EEPROM Allocation [bytes]
 Variable                                                                          Address   Size
@@ -9,15 +13,29 @@ Variable                                                                        
 Register Allocation
 Variable                                                                          Register  Size
 ------------------------------------------------------------------------------------------------
+_lcd_x                                                                            R4           1
+_lcd_y                                                                            R3           1
+_lcd_maxx                                                                         R6           1
 
 FLASH Allocation [words]
 Function                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
-adc_isr                                                                           0x0005D     47
-main                                                                              0x0008C     40
-putchar                                                                           0x000B4     10
-put_usart_G100                                                                    0x000BE     13
-_print_G100                                                                       0x000CB    308
-printf                                                                            0x001FF     37
-strlen                                                                            0x00224     12
-strlenf                                                                           0x00230     13
+adc_isr                                                                           0x0007E     53
+main                                                                              0x000B3    154
+_lcd_write_nibble_G100                                                            0x0014D     20
+_lcd_write_data                                                                   0x00161     12
+lcd_gotoxy                                                                        0x0016D     13
+lcd_clear                                                                         0x0017A     12
+lcd_putchar                                                                       0x00186     21
+lcd_puts                                                                          0x0019B     17
+lcd_init                                                                          0x001AC     46
+put_buff_G101                                                                     0x001DA     58
+_ftoe_G101                                                                        0x00214    210
+_print_G101                                                                       0x002E6    538
+sprintf                                                                           0x00500     52
+strcpyf                                                                           0x00534     13
+strlen                                                                            0x00541     12
+strlenf                                                                           0x0054D     13
+ftrunc                                                                            0x0055A     49
+floor                                                                             0x0058B     23
+ftoa                                                                              0x005A2    161
