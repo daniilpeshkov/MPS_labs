@@ -222,8 +222,8 @@ while (1)
       {
       // Place your code here
                
-        sprintf(buf1, "%.2f V", adc_data[0]* 5. / 1024.); 
-        sprintf(buf2, "%.2f V", adc_data[1]* 5. / 1024.); 
+        sprintf(buf1, "U = %.3f V", adc_data[0]* 5. / 1024.); 
+        sprintf(buf2, "I = %.3f A", adc_data[1]* 5. / 1024. / 100.); 
         #asm("cli")  
         lcd_gotoxy(0,0);
         lcd_puts(buf1);  

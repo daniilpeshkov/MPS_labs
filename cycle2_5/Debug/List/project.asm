@@ -1129,8 +1129,10 @@ __START_OF_CODE:
 	JMP  0x00
 
 _0x0:
-	.DB  0x48,0x65,0x6C,0x6C,0x6F,0x0,0x25,0x2E
-	.DB  0x32,0x66,0x20,0x56,0x0
+	.DB  0x48,0x65,0x6C,0x6C,0x6F,0x0,0x55,0x20
+	.DB  0x3D,0x20,0x25,0x2E,0x33,0x66,0x20,0x56
+	.DB  0x0,0x49,0x20,0x3D,0x20,0x25,0x2E,0x33
+	.DB  0x66,0x20,0x41,0x0
 _0x2000003:
 	.DB  0x80,0xC0
 _0x2020000:
@@ -1581,7 +1583,7 @@ _main:
 ; 0000 00D6 // Characters/line: 20
 ; 0000 00D7 lcd_init(20);
 	LDI  R26,LOW(20)
-	RCALL _lcd_init
+	CALL _lcd_init
 ; 0000 00D8 lcd_gotoxy(0,0);
 	LDI  R30,LOW(0)
 	ST   -Y,R30
@@ -1599,18 +1601,32 @@ _0x5:
 ; 0000 00DE       {
 ; 0000 00DF       // Place your code here
 ; 0000 00E0 
-; 0000 00E1         sprintf(buf1, "%.2f V", adc_data[0]* 5. / 1024.);
+; 0000 00E1         sprintf(buf1, "U = %.3f V", adc_data[0]* 5. / 1024.);
 	MOVW R30,R28
 	SUBI R30,LOW(-(100))
 	SBCI R31,HIGH(-(100))
-	CALL SUBOPT_0x0
+	ST   -Y,R31
+	ST   -Y,R30
+	__POINTW1FN _0x0,6
+	ST   -Y,R31
+	ST   -Y,R30
 	LDS  R30,_adc_data
 	LDS  R31,_adc_data+1
-	CALL SUBOPT_0x1
-; 0000 00E2         sprintf(buf2, "%.2f V", adc_data[1]* 5. / 1024.);
-	MOVW R30,R28
 	CALL SUBOPT_0x0
+	CALL SUBOPT_0x1
+; 0000 00E2         sprintf(buf2, "I = %.3f A", adc_data[1]* 5. / 1024. / 100.);
+	MOVW R30,R28
+	ST   -Y,R31
+	ST   -Y,R30
+	__POINTW1FN _0x0,17
+	ST   -Y,R31
+	ST   -Y,R30
 	__GETW1MN _adc_data,2
+	CALL SUBOPT_0x0
+	MOVW R26,R30
+	MOVW R24,R22
+	__GETD1N 0x42C80000
+	CALL __DIVF21
 	CALL SUBOPT_0x1
 ; 0000 00E3         #asm("cli")
 	cli
@@ -2959,17 +2975,8 @@ __seed_G105:
 	.BYTE 0x4
 
 	.CSEG
-;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:13 WORDS
 SUBOPT_0x0:
-	ST   -Y,R31
-	ST   -Y,R30
-	__POINTW1FN _0x0,6
-	ST   -Y,R31
-	ST   -Y,R30
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:19 WORDS
-SUBOPT_0x1:
 	CLR  R22
 	CLR  R23
 	CALL __CDF1
@@ -2979,6 +2986,10 @@ SUBOPT_0x1:
 	MOVW R24,R22
 	__GETD1N 0x44800000
 	CALL __DIVF21
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x1:
 	CALL __PUTPARD1
 	LDI  R24,4
 	CALL _sprintf

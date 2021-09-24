@@ -222,8 +222,8 @@ while (1)
       {
       // Place your code here
                
-        sprintf(buf1, "%.2f V", adc_data[0]* 5. / 1024.); 
-        sprintf(buf2, "%.2f V", adc_data[1]* 5. / 1024.); 
+        sprintf(buf1, "U = %.2f V", adc_data[0]* 5. / 1024.); 
+        sprintf(buf2, "I = %.2f A", adc_data[1]* 5. / 1024. / 100.); 
         #asm("cli")  
         lcd_gotoxy(0,0);
         lcd_puts(buf1);  
@@ -231,6 +231,6 @@ while (1)
         lcd_gotoxy(0,1);
         lcd_puts(buf2);
         #asm("sei")
-        delay_ms(400);  
+        delay_ms(50);  
       }
 }

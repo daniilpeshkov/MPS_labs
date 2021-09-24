@@ -388,7 +388,7 @@
 ; 0000 00DE       {
 ; 0000 00DF       // Place your code here
 ; 0000 00E0 
-; 0000 00E1         sprintf(buf1, "%.2f V", adc_data[0]* 5. / 1024.);
+; 0000 00E1         sprintf(buf1, "U = %.3f V", adc_data[0]* 5. / 1024.);
 ;PCODE: $00000096 VOL: 0
 ;PCODE: $00000097 VOL: 0
 ;PCODE: $00000098 VOL: 0
@@ -406,7 +406,7 @@
 ;PCODE: $000000A4 VOL: 0
 ;PCODE: $000000A5 VOL: 0
 ;PCODE: $000000A6 VOL: 0
-; 0000 00E2         sprintf(buf2, "%.2f V", adc_data[1]* 5. / 1024.);
+; 0000 00E2         sprintf(buf2, "I = %.3f A", adc_data[1]* 5. / 1024. / 100.);
 ;PCODE: $000000A7 VOL: 0
 ;PCODE: $000000A8 VOL: 0
 ;PCODE: $000000A9 VOL: 0
@@ -425,43 +425,46 @@
 ;PCODE: $000000B6 VOL: 0
 ;PCODE: $000000B7 VOL: 0
 ;PCODE: $000000B8 VOL: 0
-; 0000 00E3         #asm("cli")
 ;PCODE: $000000B9 VOL: 0
-	cli
 ;PCODE: $000000BA VOL: 0
-; 0000 00E4         lcd_gotoxy(0,0);
 ;PCODE: $000000BB VOL: 0
+; 0000 00E3         #asm("cli")
 ;PCODE: $000000BC VOL: 0
+	cli
 ;PCODE: $000000BD VOL: 0
+; 0000 00E4         lcd_gotoxy(0,0);
 ;PCODE: $000000BE VOL: 0
-; 0000 00E5         lcd_puts(buf1);
 ;PCODE: $000000BF VOL: 0
 ;PCODE: $000000C0 VOL: 0
-; 0000 00E6 
-; 0000 00E7         lcd_gotoxy(0,1);
 ;PCODE: $000000C1 VOL: 0
+; 0000 00E5         lcd_puts(buf1);
 ;PCODE: $000000C2 VOL: 0
 ;PCODE: $000000C3 VOL: 0
+; 0000 00E6 
+; 0000 00E7         lcd_gotoxy(0,1);
 ;PCODE: $000000C4 VOL: 0
-; 0000 00E8         lcd_puts(buf2);
 ;PCODE: $000000C5 VOL: 0
 ;PCODE: $000000C6 VOL: 0
-; 0000 00E9         #asm("sei")
 ;PCODE: $000000C7 VOL: 0
-	sei
+; 0000 00E8         lcd_puts(buf2);
 ;PCODE: $000000C8 VOL: 0
-; 0000 00EA         delay_ms(50);
 ;PCODE: $000000C9 VOL: 0
+; 0000 00E9         #asm("sei")
 ;PCODE: $000000CA VOL: 0
+	sei
 ;PCODE: $000000CB VOL: 0
-; 0000 00EB       }
+; 0000 00EA         delay_ms(50);
 ;PCODE: $000000CC VOL: 0
 ;PCODE: $000000CD VOL: 0
-; 0000 00EC }
 ;PCODE: $000000CE VOL: 0
+; 0000 00EB       }
 ;PCODE: $000000CF VOL: 0
 ;PCODE: $000000D0 VOL: 0
+; 0000 00EC }
 ;PCODE: $000000D1 VOL: 0
+;PCODE: $000000D2 VOL: 0
+;PCODE: $000000D3 VOL: 0
+;PCODE: $000000D4 VOL: 0
 
 	.DSEG
 _0x4:
