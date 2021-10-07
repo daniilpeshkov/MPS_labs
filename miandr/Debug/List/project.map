@@ -13,4 +13,12 @@ Variable                                                                        
 FLASH Allocation [words]
 Function                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
-main                                                                              0x0005A     44
+timer1_compa_isr                                                                  0x0005D     13
+count_A                                                                           0x0006A     68
+main                                                                              0x000AE    169
+putchar                                                                           0x00157     10
+put_usart_G100                                                                    0x00161     13
+_print_G100                                                                       0x0016E    308
+printf                                                                            0x002A2     37
+strlen                                                                            0x002C7     12
+strlenf                                                                           0x002D3     13
