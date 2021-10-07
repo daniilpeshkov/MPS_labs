@@ -1,4 +1,4 @@
-VERSION:3 SOURCE_TIMESTAMP:53385CFA
-NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega328p.h"
-NODE:F LEVEL:0 LINE:29 "timer0_ovf_isr(void)"
-NODE:F LEVEL:0 LINE:38 "main(void)"
+VERSION:3 SOURCE_TIMESTAMP:534794CE
+NODE:I LEVEL:0 LINE:24 "D:\cvavr\inc\mega328p.h"
+NODE:I LEVEL:0 LINE:29 "D:\cvavr\inc\stdio.h"
+NODE:F LEVEL:0 LINE:31 "main(void)"

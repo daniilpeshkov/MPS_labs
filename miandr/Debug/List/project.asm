@@ -1112,7 +1112,6 @@ __START_OF_CODE:
 	JMP  0x00
 	JMP  0x00
 	JMP  0x00
-	JMP  _timer0_ovf_isr
 	JMP  0x00
 	JMP  0x00
 	JMP  0x00
@@ -1122,6 +1121,13 @@ __START_OF_CODE:
 	JMP  0x00
 	JMP  0x00
 	JMP  0x00
+	JMP  0x00
+
+_tbl10_G100:
+	.DB  0x10,0x27,0xE8,0x3,0x64,0x0,0xA,0x0
+	.DB  0x1,0x0
+_tbl16_G100:
+	.DB  0x0,0x10,0x0,0x1,0x10,0x0,0x1,0x0
 
 __RESET:
 	CLI
@@ -1214,130 +1220,139 @@ __CLEAR_SRAM:
 ;
 ;// Declare your global variables here
 ;
-;// Timer 0 overflow interrupt service routine
-;interrupt [TIM0_OVF] void timer0_ovf_isr(void)
-; 0000 001E {
-
-	.CSEG
-_timer0_ovf_isr:
-; .FSTART _timer0_ovf_isr
-	ST   -Y,R30
-	IN   R30,SREG
-	ST   -Y,R30
-; 0000 001F // Reinitialize Timer 0 value
-; 0000 0020 TCNT0=0x60;
-	LDI  R30,LOW(96)
-	OUT  0x26,R30
-; 0000 0021 // Place your code here
-; 0000 0022 
-; 0000 0023 PORTB = !PORTB;
-	IN   R30,0x5
-	CALL __LNEGB1
-	OUT  0x5,R30
-; 0000 0024 }
-	LD   R30,Y+
-	OUT  SREG,R30
-	LD   R30,Y+
-	RETI
-; .FEND
+;// Standard Input/Output functions
+;#include <stdio.h>
 ;
 ;void main(void)
-; 0000 0027 {
+; 0000 0020 {
+
+	.CSEG
 _main:
 ; .FSTART _main
-; 0000 0028 // Declare your local variables here
-; 0000 0029 
-; 0000 002A // Crystal Oscillator division factor: 1
-; 0000 002B #pragma optsize-
-; 0000 002C CLKPR=(1<<CLKPCE);
+; 0000 0021 // Declare your local variables here
+; 0000 0022 
+; 0000 0023 // Crystal Oscillator division factor: 1
+; 0000 0024 #pragma optsize-
+; 0000 0025 CLKPR=(1<<CLKPCE);
 	LDI  R30,LOW(128)
 	STS  97,R30
-; 0000 002D CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
+; 0000 0026 CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
 	LDI  R30,LOW(0)
 	STS  97,R30
-; 0000 002E #ifdef _OPTIMIZE_SIZE_
-; 0000 002F #pragma optsize+
-; 0000 0030 #endif
-; 0000 0031 
-; 0000 0032 // Input/Output Ports initialization
-; 0000 0033 // Port B initialization
-; 0000 0034 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=Out
-; 0000 0035 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (0<<DDB1) | (1<<DDB0);
+; 0000 0027 #ifdef _OPTIMIZE_SIZE_
+; 0000 0028 #pragma optsize+
+; 0000 0029 #endif
+; 0000 002A 
+; 0000 002B // Input/Output Ports initialization
+; 0000 002C // Port B initialization
+; 0000 002D // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=Out
+; 0000 002E DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (0<<DDB1) | (1<<DDB0);
 	LDI  R30,LOW(1)
 	OUT  0x4,R30
-; 0000 0036 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=0
-; 0000 0037 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+; 0000 002F // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=0
+; 0000 0030 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
 	LDI  R30,LOW(0)
 	OUT  0x5,R30
-; 0000 0038 
-; 0000 0039 // Port C initialization
-; 0000 003A // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 003B DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
+; 0000 0031 
+; 0000 0032 // Port C initialization
+; 0000 0033 // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0034 DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
 	OUT  0x7,R30
-; 0000 003C // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 003D PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+; 0000 0035 // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0036 PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 	OUT  0x8,R30
-; 0000 003E 
-; 0000 003F // Port D initialization
-; 0000 0040 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 0041 DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (0<<DDD1) | (0<<DDD0);
+; 0000 0037 
+; 0000 0038 // Port D initialization
+; 0000 0039 // Function: Bit7=In Bit6=Out Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 003A DDRD=(0<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (0<<DDD1) | (0<<DDD0);
+	LDI  R30,LOW(64)
 	OUT  0xA,R30
-; 0000 0042 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 0043 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+; 0000 003B // State: Bit7=T Bit6=0 Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 003C PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+	LDI  R30,LOW(0)
 	OUT  0xB,R30
-; 0000 0044 
-; 0000 0045 // Timer/Counter 0 initialization
-; 0000 0046 // Clock source: System Clock
-; 0000 0047 // Clock value: 8000.000 kHz
-; 0000 0048 // Mode: Normal top=0xFF
-; 0000 0049 // OC0A output: Disconnected
-; 0000 004A // OC0B output: Disconnected
-; 0000 004B // Timer Period: 0.02 ms
-; 0000 004C TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
+; 0000 003D 
+; 0000 003E // Timer/Counter 0 initialization
+; 0000 003F // Clock source: System Clock
+; 0000 0040 // Clock value: 8000.000 kHz
+; 0000 0041 // Mode: Fast PWM top=0xFF
+; 0000 0042 // OC0A output: Non-Inverted PWM
+; 0000 0043 // OC0B output: Disconnected
+; 0000 0044 // Timer Period: 0.032 ms
+; 0000 0045 // Output Pulse(s):
+; 0000 0046 // OC0A Period: 0.032 ms Width: 0.015937 ms
+; 0000 0047 TCCR0A=(1<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (1<<WGM01) | (1<<WGM00);
+	LDI  R30,LOW(131)
 	OUT  0x24,R30
-; 0000 004D TCCR0B=(0<<WGM02) | (0<<CS02) | (0<<CS01) | (1<<CS00);
+; 0000 0048 TCCR0B=(0<<WGM02) | (0<<CS02) | (0<<CS01) | (1<<CS00);
 	LDI  R30,LOW(1)
 	OUT  0x25,R30
-; 0000 004E TCNT0=0x60;
+; 0000 0049 TCNT0=0x60;
 	LDI  R30,LOW(96)
 	OUT  0x26,R30
-; 0000 004F OCR0A=0x00;
-	LDI  R30,LOW(0)
+; 0000 004A OCR0A=0x7F;
+	LDI  R30,LOW(127)
 	OUT  0x27,R30
-; 0000 0050 OCR0B=0x00;
+; 0000 004B OCR0B=0x00;
+	LDI  R30,LOW(0)
 	OUT  0x28,R30
-; 0000 0051 
-; 0000 0052 // Timer/Counter 0 Interrupt(s) initialization
-; 0000 0053 TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
-	LDI  R30,LOW(1)
+; 0000 004C 
+; 0000 004D // Timer/Counter 0 Interrupt(s) initialization
+; 0000 004E TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (0<<TOIE0);
 	STS  110,R30
-; 0000 0054 
-; 0000 0055 // Global enable interrupts
-; 0000 0056 #asm("sei")
-	sei
-; 0000 0057 
-; 0000 0058 while (1)
-_0x3:
-; 0000 0059       {
-; 0000 005A       // Place your code here
+; 0000 004F 
+; 0000 0050 // USART initialization
+; 0000 0051 // Communication Parameters: 8 Data, 1 Stop, No Parity
+; 0000 0052 // USART Receiver: Off
+; 0000 0053 // USART Transmitter: On
+; 0000 0054 // USART0 Mode: Asynchronous
+; 0000 0055 // USART Baud Rate: 9600
+; 0000 0056 UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
+	STS  192,R30
+; 0000 0057 UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (0<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
+	LDI  R30,LOW(8)
+	STS  193,R30
+; 0000 0058 UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
+	LDI  R30,LOW(6)
+	STS  194,R30
+; 0000 0059 UBRR0H=0x00;
+	LDI  R30,LOW(0)
+	STS  197,R30
+; 0000 005A UBRR0L=0x33;
+	LDI  R30,LOW(51)
+	STS  196,R30
 ; 0000 005B 
-; 0000 005C       }
+; 0000 005C while (1)
+_0x3:
+; 0000 005D       {
+; 0000 005E       // Place your code here
+; 0000 005F 
+; 0000 0060       }
 	RJMP _0x3
-; 0000 005D }
+; 0000 0061 }
 _0x6:
 	RJMP _0x6
 ; .FEND
+	#ifndef __SLEEP_DEFINED__
+	#define __SLEEP_DEFINED__
+	.EQU __se_bit=0x01
+	.EQU __sm_mask=0x0E
+	.EQU __sm_adc_noise_red=0x02
+	.EQU __sm_powerdown=0x04
+	.EQU __sm_powersave=0x06
+	.EQU __sm_standby=0x0C
+	.EQU __sm_ext_standby=0x0E
+	.SET power_ctrl_reg=smcr
+	#endif
 
 	.CSEG
 
 	.CSEG
-__LNEGB1:
-	TST  R30
-	LDI  R30,1
-	BREQ __LNEGB1F
-	CLR  R30
-__LNEGB1F:
-	RET
 
+	.CSEG
+
+	.CSEG
+
+	.CSEG
 ;END OF CODE MARKER
 __END_OF_CODE:

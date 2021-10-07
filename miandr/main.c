@@ -25,15 +25,8 @@ Data Stack size         : 512
 
 // Declare your global variables here
 
-// Timer 0 overflow interrupt service routine
-interrupt [TIM0_OVF] void timer0_ovf_isr(void)
-{
-// Reinitialize Timer 0 value
-TCNT0=0x60;
-// Place your code here
-
-PORTB = !PORTB;
-}
+// Standard Input/Output functions
+#include <stdio.h>
 
 void main(void)
 {
@@ -61,33 +54,45 @@ DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<
 PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 
 // Port D initialization
-// Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
-DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (0<<DDD1) | (0<<DDD0);
-// State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
+// Function: Bit7=In Bit6=Out Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
+DDRD=(0<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (0<<DDD1) | (0<<DDD0);
+// State: Bit7=T Bit6=0 Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
 
 // Timer/Counter 0 initialization
 // Clock source: System Clock
 // Clock value: 8000.000 kHz
-// Mode: Normal top=0xFF
-// OC0A output: Disconnected
+// Mode: Fast PWM top=0xFF
+// OC0A output: Non-Inverted PWM
 // OC0B output: Disconnected
-// Timer Period: 0.02 ms
-TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
+// Timer Period: 0.032 ms
+// Output Pulse(s):
+// OC0A Period: 0.032 ms Width: 0.015937 ms
+TCCR0A=(1<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (1<<WGM01) | (1<<WGM00);
 TCCR0B=(0<<WGM02) | (0<<CS02) | (0<<CS01) | (1<<CS00);
 TCNT0=0x60;
-OCR0A=0x00;
+OCR0A=0x7F;
 OCR0B=0x00;
 
 // Timer/Counter 0 Interrupt(s) initialization
-TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
+TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (0<<TOIE0);
 
-// Global enable interrupts
-#asm("sei")
+// USART initialization
+// Communication Parameters: 8 Data, 1 Stop, No Parity
+// USART Receiver: Off
+// USART Transmitter: On
+// USART0 Mode: Asynchronous
+// USART Baud Rate: 9600
+UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
+UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (0<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
+UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
+UBRR0H=0x00;
+UBRR0L=0x33;
 
 while (1)
-      {
-      // Place your code here
+      {   
+      	
+
 
       }
 }
