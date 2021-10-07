@@ -1,0 +1,7 @@
+VERSION:3 SOURCE_TIMESTAMP:533168AF
+NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega328p.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr\inc\alcd.h"
+NODE:I LEVEL:0 LINE:28 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:33 "C:\cvavr\inc\stdio.h"
+NODE:F LEVEL:0 LINE:34 "init(void)"
+NODE:F LEVEL:0 LINE:74 "main(void)"
