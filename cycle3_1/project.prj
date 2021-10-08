@@ -5,7 +5,7 @@ ActiveBuildConfiguration=0
 CV=3.12 Advanced
 A=
 C=
-D=10/7/2021
+D=10/8/2021
 Files=1
 F1=main.c
 OpenedFiles=1
@@ -27,7 +27,7 @@ Active0=0
 EditorPanel0=0
 PageIndex0=0
 EditorPanel1=0
-TimeStamp1=1397249403
+TimeStamp1=1397251220
 PageIndex1=1
 [CompilerDebug]
 Chip=ATmega328P
@@ -127,8 +127,8 @@ WatchAVR8LAutoVariables=0
 UseEEPROMLocation0=1
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1397249424
-Build=37
+COFFileTimeStamp=1397251222
+Build=5
 [DefinedSymbolsDebug]
 Count=0
 [Compiler]
@@ -230,7 +230,7 @@ UseEEPROMLocation0=1
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=37
+Build=5
 [DefinedSymbols]
 Count=0
 [StartUp]
@@ -311,9 +311,8 @@ VerifyProgramming=1
 ProgrammingCounter=0
 RunUserProg=0
 [HeadersList]
-Files=2
-F1=C:\Users\danii\prg\MPS_labs\miandr\main.c
-F2=D:\prg\MPS_labs\miandr\main.c
+Files=1
+F1=D:\prg\MPS_labs\cycle3_1\main.c
 [BuildInfoCompiler]
 L1=Build configuration: Debug
 L2=Chip: ATmega328P
@@ -331,16 +330,16 @@ L13=Enhanced function parameters passing: Yes
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 36
-L18=1717 line(s) compiled
+L17=Build: 4
+L18=967 line(s) compiled
 L19=No errors
-L20=3 warning(s)
+L20=No warnings
 L21=
 L22=Bit variables size: 0 byte(s)
 L23=
 L24=Data Stack area: 0x100 to 0x2FF
 L25=Data Stack size: 512 byte(s)
-L26=Estimated Data Stack usage: 149 byte(s)
+L26=Estimated Data Stack usage: 3 byte(s)
 L27=
 L28=RAM Global variables size: 0 byte(s)
 L29=
@@ -350,42 +349,43 @@ L32=
 L33=Heap size: 0 byte(s)
 L34=
 L35=EEPROM usage: 0 byte(s), 0.0% of EEPROM
+L36=Program size: 161 words (322 bytes), 1.0% of FLASH
+L37=0 words (0 bytes), 0.0% reduced by Code Compression
 Lines=37
-L36=Program size: 1093 words (2186 bytes), 6.7% of FLASH
-L37=45 words (90 bytes), 4.0% reduced by Code Compression
 [BuildInfoAssembler]
-Lines=12
 L1=AVRASM: AVR macro assembler 2.1.30 (build 592 Nov  7 2008 12:38:17)
 L2=Copyright (C) 1995-2008 ATMEL Corporation
 L3=
-L4=D:\prg\MPS_labs\miandr\Debug\List\project.asm(2552): No EEPROM data, deleting D:\prg\MPS_labs\miandr\Debug\Exe\project.eep
+L4=D:\prg\MPS_labs\cycle3_1\Debug\List\project.asm(1395): No EEPROM data, deleting D:\prg\MPS_labs\cycle3_1\Debug\Exe\project.eep
 L5=
 L6=ATmega328P memory use summary [bytes]:
 L7=Segment   Begin    End      Code   Data   Used    Size   Use%
 L8=---------------------------------------------------------------
-L9=[.cseg] 0x000000 0x00088a   2162     24   2186   32768   6.7%
+L9=[.cseg] 0x000000 0x000142    312     10    322   32768   1.0%
 L10=[.dseg] 0x000100 0x000300      0      0      0    2048   0.0%
 L11=[.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 L12=
+Lines=12
 [Header1]
-Files=2
-F1=C:\cvavr\inc\mega328p.h
-F2=C:\cvavr\inc\mega328p_bits.h
+Files=3
+F1=D:\cvavr\inc\mega328p.h
+F2=D:\cvavr\inc\mega328p_bits.h
+F3=D:\cvavr\inc\delay.h
 [Bookmarks0]
 Row=0
 Column=0
 ScrollPosX=0
 ScrollPosY=0
-TimeStamp=1397250993
+TimeStamp=1397251357
 [BookmarksFoldedCode]
 Files=1
 F1=main.c
 [Bookmarks1]
-TimeStamp=1397249403
-Row=118
-Column=39
+TimeStamp=1397251220
+Row=87
+Column=16
 ScrollPosX=0
-ScrollPosY=85
+ScrollPosY=75
 BK0=-1
 BK1=-1
 BK2=-1
@@ -396,13 +396,5 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
-[Header2]
-Files=6
-F1=D:\cvavr\inc\mega328p.h
-F2=D:\cvavr\inc\mega328p_bits.h
-F3=D:\cvavr\inc\stdio.h
-F4=D:\cvavr\inc\io.h
-F5=D:\cvavr\inc\stdarg.h
-F6=D:\cvavr\inc\delay.h
 [FoldedCode1]
 Blocks=0
