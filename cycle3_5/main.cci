@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:534F6C26
+NODE:T LEVEL:0 LINE:23 "uint8_t"
+NODE:I LEVEL:0 LINE:25 "C:\cvavr\inc\mega328p.h"
+NODE:I LEVEL:0 LINE:26 "C:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:29 "C:\cvavr\inc\alcd.h"
+NODE:I LEVEL:0 LINE:30 "C:\cvavr\inc\stdio.h"
+NODE:V LEVEL:0 LINE:34 "sec -> R4"
+NODE:V LEVEL:0 LINE:35 "min -> R3"
+NODE:V LEVEL:0 LINE:36 "h -> R6"
+NODE:F LEVEL:0 LINE:39 "timer2_ovf_isr(void)"
+NODE:F LEVEL:0 LINE:58 "main(void)"
