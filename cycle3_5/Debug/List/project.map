@@ -1,7 +1,7 @@
 RAM Allocation [bytes]
 Variable                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
-_base_y                                                                           0x0302       4
+_base_y                                                                           0x0308       4
 
 EEPROM Allocation [bytes]
 Variable                                                                          Address   Size
@@ -20,17 +20,17 @@ _lcd_maxx                                                                       
 FLASH Allocation [words]
 Function                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
-timer2_ovf_isr                                                                    0x00082     21
-main                                                                              0x00097     99
-_lcd_write_nibble_G100                                                            0x000FA     20
-_lcd_write_data                                                                   0x0010E     12
-lcd_gotoxy                                                                        0x0011A     13
-lcd_clear                                                                         0x00127     12
-lcd_putchar                                                                       0x00133     21
-lcd_puts                                                                          0x00148     17
-lcd_init                                                                          0x00159     46
-put_buff_G101                                                                     0x00187     64
-_print_G101                                                                       0x001C7    308
-sprintf                                                                           0x002FB     52
-strlen                                                                            0x0032F     12
-strlenf                                                                           0x0033B     13
+timer2_ovf_isr                                                                    0x0008C     21
+main                                                                              0x000A1    221
+_lcd_write_nibble_G100                                                            0x0017E     20
+_lcd_write_data                                                                   0x00192     12
+lcd_gotoxy                                                                        0x0019E     13
+lcd_clear                                                                         0x001AB     12
+lcd_putchar                                                                       0x001B7     21
+lcd_puts                                                                          0x001CC     17
+lcd_init                                                                          0x001DD     46
+put_buff_G101                                                                     0x0020B     64
+_print_G101                                                                       0x0024B    308
+sprintf                                                                           0x0037F     52
+strlen                                                                            0x003B3     12
+strlenf                                                                           0x003BF     13

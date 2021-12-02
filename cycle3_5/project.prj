@@ -27,7 +27,7 @@ Active0=0
 EditorPanel0=0
 PageIndex0=0
 EditorPanel1=0
-TimeStamp1=1397713958
+TimeStamp1=1398170194
 PageIndex1=1
 [CompilerDebug]
 Chip=ATmega328P
@@ -127,8 +127,8 @@ WatchAVR8LAutoVariables=0
 UseEEPROMLocation0=1
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1397713964
-Build=15
+COFFileTimeStamp=1398170197
+Build=41
 [DefinedSymbolsDebug]
 Count=0
 [Compiler]
@@ -230,7 +230,7 @@ UseEEPROMLocation0=1
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=15
+Build=41
 [DefinedSymbols]
 Count=0
 [StartUp]
@@ -346,8 +346,8 @@ L13=Enhanced function parameters passing: Yes
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 14
-L18=1726 line(s) compiled
+L17=Build: 40
+L18=1793 line(s) compiled
 L19=No errors
 L20=No warnings
 L21=
@@ -357,56 +357,48 @@ L24=Data Stack area: 0x100 to 0x2FF
 L25=Data Stack size: 512 byte(s)
 L26=Estimated Data Stack usage: 138 byte(s)
 L27=
-L28=RAM Global variables area: 0x300 to 0x305
-L29=RAM Global variables size: 6 byte(s)
+L28=RAM Global variables area: 0x300 to 0x30B
+L29=RAM Global variables size: 12 byte(s)
 L30=
-L31=Hardware Stack area: 0x306 to 0x8FF
-L32=Hardware Stack size: 1530 byte(s)
+L31=Hardware Stack area: 0x30C to 0x8FF
+L32=Hardware Stack size: 1524 byte(s)
 L33=
 L34=Heap size: 0 byte(s)
 L35=
 L36=EEPROM usage: 0 byte(s), 0.0% of EEPROM
-L37=Program size: 949 words (1898 bytes), 5.8% of FLASH
-L38=43 words (86 bytes), 4.3% reduced by Code Compression
+L37=Program size: 1096 words (2192 bytes), 6.7% of FLASH
+L38=47 words (94 bytes), 4.1% reduced by Code Compression
 Lines=38
 [BuildInfoAssembler]
 L1=AVRASM: AVR macro assembler 2.1.30 (build 592 Nov  7 2008 12:38:17)
 L2=Copyright (C) 1995-2008 ATMEL Corporation
 L3=
-L4=C:\Users\danii\prg\MPS_labs\cycle3_5\Debug\List\project.asm(2378): No EEPROM data, deleting C:\Users\danii\prg\MPS_labs\cycle3_5\Debug\Exe\project.eep
+L4=C:\Users\danii\prg\MPS_labs\cycle3_5\Debug\List\project.asm(2618): No EEPROM data, deleting C:\Users\danii\prg\MPS_labs\cycle3_5\Debug\Exe\project.eep
 L5=
 L6=ATmega328P memory use summary [bytes]:
 L7=Segment   Begin    End      Code   Data   Used    Size   Use%
 L8=---------------------------------------------------------------
-L9=[.cseg] 0x000000 0x00076a   1836     62   1898   32768   5.8%
-L10=[.dseg] 0x000100 0x000306      0      6      6    2048   0.3%
+L9=[.cseg] 0x000000 0x000890   2110     82   2192   32768   6.7%
+L10=[.dseg] 0x000100 0x00030c      0     12     12    2048   0.6%
 L11=[.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 L12=
 Lines=12
-[Header1]
-Files=7
-F1=C:\cvavr\inc\mega328p.h
-F2=C:\cvavr\inc\mega328p_bits.h
-F3=C:\cvavr\inc\delay.h
-F4=C:\cvavr\inc\alcd.h
-F5=C:\cvavr\inc\stdio.h
-F6=C:\cvavr\inc\io.h
-F7=C:\cvavr\inc\stdarg.h
 [Bookmarks0]
 Row=0
 Column=0
 ScrollPosX=0
 ScrollPosY=0
-TimeStamp=1397713986
+TimeStamp=1398171289
 [BookmarksFoldedCode]
-Files=1
+Files=2
 F1=main.c
+F2=Debug\List\project.asm
 [Bookmarks1]
-TimeStamp=1397713958
-Row=121
-Column=5
+TimeStamp=1398170194
+Row=147
+Column=19
 ScrollPosX=0
-ScrollPosY=119
+ScrollPosY=120
 BK0=-1
 BK1=-1
 BK2=-1
@@ -417,5 +409,32 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
+[Bookmarks2]
+TimeStamp=1398170122
+Row=0
+Column=0
+ScrollPosX=0
+ScrollPosY=66
+BK0=-1
+BK1=-1
+BK2=-1
+BK3=-1
+BK4=-1
+BK5=-1
+BK6=-1
+BK7=-1
+BK8=-1
+BK9=-1
+[FoldedCode2]
+Blocks=0
+[Header1]
+Files=7
+F1=C:\cvavr\inc\mega328p.h
+F2=C:\cvavr\inc\mega328p_bits.h
+F3=C:\cvavr\inc\delay.h
+F4=C:\cvavr\inc\alcd.h
+F5=C:\cvavr\inc\stdio.h
+F6=C:\cvavr\inc\io.h
+F7=C:\cvavr\inc\stdarg.h
 [FoldedCode1]
 Blocks=0
