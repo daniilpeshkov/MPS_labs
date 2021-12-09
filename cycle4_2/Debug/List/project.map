@@ -1,0 +1,56 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+twi_tx_index                                                                      0x0300       1
+twi_rx_index                                                                      0x0301       1
+twi_result                                                                        0x0302       1
+lcd_buf                                                                           0x0303      50
+_base_y                                                                           0x0335       4
+slave_address                                                                     0x0339       1
+twi_tx_buffer                                                                     0x033A       2
+bytes_to_tx                                                                       0x033C       1
+twi_rx_buffer                                                                     0x033D       2
+bytes_to_rx                                                                       0x033F       1
+twi_rx_buffer_size                                                                0x0340       1
+twi_slave_rx_handler                                                              0x0341       2
+twi_slave_tx_handler                                                              0x0343       2
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+_lcd_x                                                                            R4           1
+_lcd_y                                                                            R3           1
+_lcd_maxx                                                                         R6           1
+twi_flag                                                                          GPIOR0.0  1bit
+twi_ready                                                                         GPIOR0.1  1bit
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+sprint_temp                                                                       0x0007C     58
+main                                                                              0x000B6     62
+put_buff_G100                                                                     0x000F4     64
+_print_G100                                                                       0x00134    308
+sprintf                                                                           0x00268     52
+_lcd_write_nibble_G101                                                            0x0029C     20
+_lcd_write_data                                                                   0x002B0     12
+lcd_gotoxy                                                                        0x002BC     12
+lcd_clear                                                                         0x002C8     12
+lcd_putchar                                                                       0x002D4     21
+lcd_puts                                                                          0x002E9     16
+lcd_init                                                                          0x002F9     46
+twi_master_init                                                                   0x00327     45
+twi_master_trans                                                                  0x00354    106
+twi_int_handler                                                                   0x003BE    380
+ds1621_get_status                                                                 0x0053A     24
+ds1621_set_status                                                                 0x00552     13
+ds1621_set_temp                                                                   0x0055F     20
+ds1621_start                                                                      0x00573     18
+ds1621_temperature_10                                                             0x00585     33
+ds1621_init                                                                       0x005A6     24
+strlen                                                                            0x005BE     12
+strlenf                                                                           0x005CA     13

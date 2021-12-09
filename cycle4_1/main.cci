@@ -1,0 +1,10 @@
+VERSION:3 SOURCE_TIMESTAMP:5387A2CC
+NODE:I LEVEL:0 LINE:24 "D:\cvavr\inc\mega328p.h"
+NODE:I LEVEL:0 LINE:26 "D:\cvavr\inc\delay.h"
+NODE:I LEVEL:0 LINE:31 "D:\cvavr\inc\stdio.h"
+NODE:M LEVEL:0 LINE:34 "ADC_VREF_TYPE"
+NODE:F LEVEL:0 LINE:37 "read_adc(unsigned char adc_input)"
+NODE:F LEVEL:0 LINE:50 "sent_data(unsigned int data)"
+NODE:I LEVEL:0 LINE:62 "D:\cvavr\inc\stdio.h"
+NODE:I LEVEL:0 LINE:64 "D:\cvavr\inc\spi.h"
+NODE:F LEVEL:0 LINE:66 "main(void)"

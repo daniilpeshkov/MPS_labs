@@ -41,6 +41,7 @@ void count_A(unsigned char num) {
     }
 }
 
+#include <delay.h>
 void main(void)
 {
 // Declare your local variables here

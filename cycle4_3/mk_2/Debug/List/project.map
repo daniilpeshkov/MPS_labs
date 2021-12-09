@@ -1,0 +1,28 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+buf                                                                               0x0300      20
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+num                                                                               R4           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00061     60
+getchar                                                                           0x0009D      7
+putchar                                                                           0x000A4     10
+get_usart_G100                                                                    0x000AE     11
+get_buff_G100                                                                     0x000B9     37
+_scanf_G100                                                                       0x000DE    322
+sscanf                                                                            0x00220     26
+scanf                                                                             0x0023A     27
+isdigit                                                                           0x00255      9
+isspace                                                                           0x0025E     11
+isxdigit                                                                          0x00269     15

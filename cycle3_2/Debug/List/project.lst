@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\prg\MPS_labs\cycle3_2\Debug\List\project.asm Fri Oct 08 11:48:53 2021
+AVRASM ver. 2.1.30  D:\prg\MPS_labs\cycle3_2\Debug\List\project.asm Fri Dec 10 01:27:57 2021
 
                  
                  
@@ -1219,7 +1219,7 @@ AVRASM ver. 2.1.30  D:\prg\MPS_labs\cycle3_2\Debug\List\project.asm Fri Oct 08 1
                  ;// Declare your global variables here
                  ;
                  ;#define F_BASE 8000000.
-                 ;#define N_VAR  7.
+                 ;#define N_VAR  8.
                  ;void count_A(unsigned char num) {
                  ; 0000 001E void count_A(unsigned char num) {
                  
@@ -1257,11 +1257,11 @@ AVRASM ver. 2.1.30  D:\prg\MPS_labs\cycle3_2\Debug\List\project.asm Fri Oct 08 1
                  	__GETD2N 0x4AF42400
 000065 d0b7      	RCALL SUBOPT_0x0
                 +
-000066 e0e0     +LDI R30 , LOW ( 0x40E00000 )
-000067 e0f0     +LDI R31 , HIGH ( 0x40E00000 )
-000068 ee60     +LDI R22 , BYTE3 ( 0x40E00000 )
-000069 e470     +LDI R23 , BYTE4 ( 0x40E00000 )
-                 	__GETD1N 0x40E00000
+000066 e0e0     +LDI R30 , LOW ( 0x41000000 )
+000067 e0f0     +LDI R31 , HIGH ( 0x41000000 )
+000068 e060     +LDI R22 , BYTE3 ( 0x41000000 )
+000069 e471     +LDI R23 , BYTE4 ( 0x41000000 )
+                 	__GETD1N 0x41000000
 00006a d0b2      	RCALL SUBOPT_0x0
                 +
 00006b e0e0     +LDI R30 , LOW ( 0x447A0000 )

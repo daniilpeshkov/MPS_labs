@@ -1,0 +1,12 @@
+VERSION:3 SOURCE_TIMESTAMP:5388A941
+NODE:I LEVEL:0 LINE:1 "D:\cvavr\inc\mega328p.h"
+NODE:I LEVEL:0 LINE:2 "D:\cvavr\inc\stdio.h"
+NODE:I LEVEL:0 LINE:3 "D:\cvavr\inc\alcd.h"
+NODE:I LEVEL:0 LINE:4 "D:\cvavr\inc\twi.h"
+NODE:I LEVEL:0 LINE:5 "D:\cvavr\inc\ds1621_twi.h"
+NODE:I LEVEL:0 LINE:6 "D:\cvavr\inc\delay.h"
+NODE:V LEVEL:0 LINE:8 "lcd_buf -> RAM:????"
+NODE:F LEVEL:0 LINE:10 "sprint_temp(char * buf,int temp,int index)"
+NODE:F LEVEL:0 LINE:21 "main(void)"
+NODE:M LEVEL:0 LINE:71 "ADDR_1"
+NODE:M LEVEL:0 LINE:72 "ADDR_2"

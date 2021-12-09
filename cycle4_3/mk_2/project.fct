@@ -1,0 +1,4 @@
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"main.c" LINE:32
+sscanf DSTACK_USAGE:9 DSTACK_LEVEL:9 FILE:"D:\cvavr\lib\stdio.lib" LINE:1888
+_scanf DSTACK_USAGE:18 DSTACK_LEVEL:27 FILE:"D:\cvavr\lib\stdio.lib" LINE:1612
+isspace DSTACK_USAGE:1 DSTACK_LEVEL:28 FILE:"D:\cvavr\lib\ctype.lib" LINE:153

@@ -26,7 +26,7 @@ Data Stack size         : 512
 // Declare your global variables here
 
 #define F_BASE 8000000.
-#define N_VAR  7.
+#define N_VAR  8.
 void count_A(unsigned char num) {
 	unsigned int tmp;
     if (num == 0) {

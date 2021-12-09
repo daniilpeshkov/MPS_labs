@@ -50,7 +50,7 @@
 ;// Declare your global variables here
 ;
 ;#define F_BASE 8000000.
-;#define N_VAR  7.
+;#define N_VAR  8.
 ;void count_A(unsigned char num) {
 ; 0000 001E void count_A(unsigned char num) {
 

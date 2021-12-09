@@ -1215,7 +1215,7 @@ __CLEAR_SRAM:
 ;// Declare your global variables here
 ;
 ;#define F_BASE 8000000.
-;#define N_VAR  7.
+;#define N_VAR  8.
 ;void count_A(unsigned char num) {
 ; 0000 001E void count_A(unsigned char num) {
 
@@ -1247,7 +1247,7 @@ _0x3:
 	CALL __CDF1
 	__GETD2N 0x4AF42400
 	RCALL SUBOPT_0x0
-	__GETD1N 0x40E00000
+	__GETD1N 0x41000000
 	RCALL SUBOPT_0x0
 	__GETD1N 0x447A0000
 	RCALL SUBOPT_0x0
