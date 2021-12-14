@@ -1,0 +1,26 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+millis                                                                            0x0300       4
+adc_data                                                                          0x0304       4
+input_index                                                                       0x0308       1
+_seed                                                                             0x0309       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+timer0_compa_isr                                                                  0x0006D     27
+adc_isr                                                                           0x00088     43
+send_data                                                                         0x000B3     23
+main                                                                              0x000CA    157
+ftrunc                                                                            0x00167     49
+floor                                                                             0x00198     23
+sin                                                                               0x001AF    140

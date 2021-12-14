@@ -1,0 +1,5 @@
+main DSTACK_USAGE:4 DSTACK_LEVEL:4 FILE:"main.c" LINE:40
+sin DSTACK_USAGE:9 DSTACK_LEVEL:13 FILE:"D:\cvavr\lib\math.lib" LINE:756
+floor DSTACK_USAGE:4 DSTACK_LEVEL:17 FILE:"D:\cvavr\lib\math.lib" LINE:659
+ftrunc DSTACK_USAGE:4 DSTACK_LEVEL:21 FILE:"D:\cvavr\lib\math.lib" LINE:544
+timer0_compa_isr DSTACK_USAGE:7 DSTACK_LEVEL:28 FILE:"main.c" LINE:6
